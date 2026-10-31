@@ -1,6 +1,6 @@
 name: Security checks
 
-# Felles sikkerhetssjekker for alle repo i hpgt-com. Jobbnavnene (dependency-review, workflow-security) er
+# Felles sikkerhetssjekker for alle repo i orgen. Jobbnavnene (dependency-review, workflow-security) er
 # statussjekkene som branch-rulesettet krever, så ikke gi dem nytt navn uten å oppdatere rulesettet.
 
 on:
