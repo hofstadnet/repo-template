@@ -69,14 +69,11 @@ cmd_repo() {
 
   local vis; vis=$(gh api "repos/$full" --jq .visibility)
 
-  # Bare squash-merge (lineær historikk, PR-tittel blir commit-melding), slett branch etter merge.
+  # Alle merge-metoder tillatt (som flying-sites). Slett branch etter merge.
   gh api -X PATCH "repos/$full" --silent \
-    -F allow_squash_merge=true -F allow_merge_commit=false -F allow_rebase_merge=false \
     -F delete_branch_on_merge=true -F allow_update_branch=true \
-    -F use_squash_pr_title_as_default=true \
-    -f squash_merge_commit_title=PR_TITLE -f squash_merge_commit_message=PR_BODY \
     -F has_wiki=false -F has_projects=false
-  ok "merge: bare squash, slett branch etter merge, wiki/projects av"
+  ok "slett branch etter merge, wiki/projects av"
 
   gh api -X PUT "repos/$full/vulnerability-alerts" --silent;      ok "Dependabot alerts"
   gh api -X PUT "repos/$full/automated-security-fixes" --silent;  ok "Dependabot security updates"
