@@ -4,7 +4,7 @@
 
 Do not open a public issue. Use **Report a vulnerability** under this repository's **Security** tab, so only the
 maintainers see the report. Describe what you found, how to reproduce it and what it affects. We reply as soon as we
-can, but this is a volunteer club project.
+can, but this is a personal project.
 
 ## What is in place
 
@@ -12,10 +12,14 @@ can, but this is a volunteer club project.
   are blocked.
 - Required checks: `dependency-review` (no dependencies with known vulnerabilities) and `workflow-security` (zizmor),
   plus CodeQL code scanning (high or higher blocks the merge).
-- Actions are pinned to commit SHAs and updated monthly by Dependabot, with a 7-day cooldown.
+- Actions are pinned to commit SHAs (required in the organisation) and updated monthly by Dependabot, with a cooldown
+  of 7 days (30 for major versions). Patch and minor updates of Actions are merged automatically when all required
+  checks pass (`dependabot-automerge.yml`). Other updates are merged by hand.
 - Workflows get read-only access by default; jobs ask for more only when they need it. `persist-credentials: false`
   on every checkout.
 - Secrets live in GitHub environments limited to `main`, never in the code. `.gitignore` blocks `.env` and key files.
-- Secret scanning with push protection, Dependabot alerts and security updates are on.
+- Secret scanning with push protection, Dependabot alerts and security updates are on (the organisation's code
+  security configuration), and private vulnerability reporting is on. The settings are kept in
+  [hofstadnet/operations](https://github.com/hofstadnet/operations) (`github.json`) and checked every week.
 
 <!-- Beskriv det som er spesielt for dette repoet: hva som publiseres, hvor, med hvilke nøkler. -->
