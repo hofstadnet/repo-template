@@ -21,4 +21,6 @@ Instruksjoner for kodeagenter og andre som jobber i repoet. Beskrivelsen av pros
 - Alle endringer går via pull request med grønne sjekker. Ikke push til `main`.
 - Oppdater dokumentasjonen i samme pull request som endringen.
 - Ingen hemmeligheter, tokens eller private opplysninger i repoet.
+- Innstillingene i GitHub (regelsett, påkrevde sjekker, miljøer, variabler) endres i `github.json` i
+  [hofstadnet/operations](https://github.com/hofstadnet/operations), ikke i nettleseren.
 <!-- Legg til regler som alltid gjelder i dette repoet, f.eks. om sikkerhetshoder eller infrastruktur. -->
